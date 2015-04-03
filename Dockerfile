@@ -22,7 +22,8 @@ RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
 ADD nginx.conf /etc/nginx/
-ADD /certs /etc/nginx/certs
+ADD certs/cert.pem /etc/nginx/certs/
+ADD certs/key.pem /etc/nginx/certs/
 
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
