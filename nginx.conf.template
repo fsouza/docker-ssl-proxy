@@ -1,3 +1,13 @@
+worker_processes 1;
+
+events { worker_connections 1024; }
+
+http {
+
+    sendfile on;
+
+    server {
+        listen {{listenPort}};
 
         ssl_certificate           /etc/nginx/certs/cert.pem;
         ssl_certificate_key       /etc/nginx/certs/key.pem;
@@ -20,3 +30,4 @@
         }
     }
 }
+daemon off;
