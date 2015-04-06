@@ -11,3 +11,8 @@ Run the docker:
 
     sh build.sh [-p SSL Port (default: 443)] [-d Target Docker (Default:
     bixel)]
+
+### Docker Hub Image ###
+You can get the publicly available docker image at the following location:
+
+[https://github.com/bombbomb/docker-ssl-proxy](https://github.com/bombbomb/docker-ssl-proxy)
