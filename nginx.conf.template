@@ -30,4 +30,3 @@ http {
         }
     }
 }
-daemon off;

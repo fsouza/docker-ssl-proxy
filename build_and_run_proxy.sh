@@ -36,7 +36,7 @@ docker build -t ${proxyname} .
 
 echo
 echo === Running Bixel Image... ===
-docker run -i -t -p ${port}:${port} \
+docker run -d -p ${port}:${port} \
 --name="${proxyname}" \
 --link ${appname}:proxyapp  \
 --env PORT=${port} \
