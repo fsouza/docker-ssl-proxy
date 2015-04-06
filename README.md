@@ -15,4 +15,4 @@ Run the docker:
 ### Docker Hub Image ###
 You can get the publicly available docker image at the following location:
 
-[https://github.com/bombbomb/docker-ssl-proxy](https://github.com/bombbomb/docker-ssl-proxy)
+[Docker Hub - SSL-Proxy](https://registry.hub.docker.com/u/cbachich/ssl-proxy/)
