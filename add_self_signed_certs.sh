@@ -1,5 +1,5 @@
-rm -r certs
-mkdir certs
-openssl genrsa -out certs/key.pem 2048
-openssl req -new -sha256 -key certs/key.pem -out certs/csr.pem
-openssl x509 -req -in certs/csr.pem -signkey certs/key.pem -out certs/cert.pem
+mkdir /etc/nginx/certs/
+cd /etc/nginx/certs/
+openssl genrsa -out key.pem 2048
+openssl req -new -sha256 -key key.pem -nodes -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" -out csr.pem
+openssl x509 -req -in csr.pem -signkey key.pem -out cert.pem

@@ -21,10 +21,12 @@ RUN apt-get install -y nginx
 RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
-ADD certs/cert.pem /etc/nginx/certs/
-ADD certs/key.pem /etc/nginx/certs/
+ADD add_self_signed_certs.sh /
 ADD nginx.conf.template /
 ADD configure_nginx.sh /
+
+# Create the self signed certs
+RUN sh /add_self_signed_certs.sh
 
 # Set the default command to execute
 # when creating a new container
