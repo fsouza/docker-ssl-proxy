@@ -30,12 +30,6 @@ echo Proxy App Name: ${proxyname}
 echo SSL Port: ${port}
 
 echo
-echo == Creating Nginx Config ==
-cat parts/nginx_pre.conf > nginx.conf
-echo "        listen ${port};" >> nginx.conf
-cat parts/nginx_post.conf >> nginx.conf
-
-echo
 echo === Building Proxy Image... ===
 docker rm -f ${proxyname}
 docker build -t ${proxyname} .
