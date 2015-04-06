@@ -3,13 +3,16 @@
 targetDocker="bixel"
 port=443
 
-while getopts ':d::p:' opt; do
+while getopts ':d::p::t:' opt; do
   case "$opt" in
     d)
       targetDocker=$OPTARG
       ;;
     p)
       port=$OPTARG
+      ;;
+    t)
+      targetPort=$OPTARG
       ;;
     :)
       echo "Option -$OPTARG requires an argument." >&2
@@ -36,4 +39,5 @@ docker run -d -p ${port}:${port} \
 --name="${proxyname}" \
 --link ${targetDocker}:proxyapp  \
 --env PORT=${port} \
+--env TARGET_PORT=${targetPort} \
 ${proxyname}
