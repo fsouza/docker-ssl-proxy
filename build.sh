@@ -1,15 +1,11 @@
 #!/bin/sh
 
 targetDocker="bixel"
-port=443
 
-while getopts ':d::p:' opt; do
+while getopts ':d:' opt; do
   case "$opt" in
     d)
       targetDocker=$OPTARG
-      ;;
-    p)
-      port=$OPTARG
       ;;
     :)
       echo "Option -$OPTARG requires an argument." >&2
@@ -27,13 +23,8 @@ proxyname="${targetDocker}_proxy"
 echo === Environment ===
 echo Bixel App: ${targetDocker}
 echo Proxy App Name: ${proxyname}
-echo SSL Port: ${port}
 
 echo
-echo === Running SSL-Proxy Image... ===
+echo === Building Proxy Image... ===
 docker rm -f ${proxyname}
-docker run -d -p ${port}:${port} \
---name="${proxyname}" \
---link ${targetDocker}:proxyapp  \
---env PORT=${port} \
-${proxyname}
+docker build -t ${proxyname} .
