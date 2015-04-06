@@ -2,6 +2,7 @@
 
 targetDocker="bixel"
 port=443
+targetPort=80
 
 while getopts ':d::p::t:' opt; do
   case "$opt" in
