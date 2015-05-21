@@ -13,4 +13,4 @@ Run the docker:
     bixel)] [-t Target Docker Port (Default: 80)]
 
 ### Docker Hub Image ###
-You can get the publicly available docker image at the following location: [Docker Hub - SSL-Proxy](https://registry.hub.docker.com/u/cbachich/ssl-proxy/)
+You can get the publicly available docker image at the following location: [Docker Hub - SSL-Proxy](https://registry.hub.docker.com/u/cbachich/docker-ssl-proxy/)
