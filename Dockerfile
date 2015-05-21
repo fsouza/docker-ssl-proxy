@@ -30,4 +30,4 @@ RUN sh /add_self_signed_certs.sh
 
 # Set the default command to execute
 # when creating a new container
-CMD sh /configure_nginx.sh
+CMD ["sh", "configure_nginx.sh"]
