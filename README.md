@@ -11,10 +11,11 @@ The following environment variables configure nginx:
 - ``TARGET_PORT``: target port for the reverse proxy (default value: ``80``)
 - ``TARGET_HOST``: target host for the reverse proxy (default value: ``proxyapp``)
 
-## Certificates location
+## Certificates and CA location
 
-A self-signed certificate is generated at ``/etc/nginx/certs``, you may use
-Docker volumes to share the certificate with other containers.
+The SSL certificate is generated using a own-ROOT-ca that is available in the
+directory ``/etc/nginx/ca``, you may use Docker volumes to share the CAs with
+other containers, so they can trust the installed certificate.
 
 ## Docker Hub Image
 
