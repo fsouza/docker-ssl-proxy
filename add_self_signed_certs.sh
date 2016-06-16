@@ -2,7 +2,7 @@
 
 DOMAIN=${DOMAIN:-www.example.com}
 OUTPUT_DIR=/etc/nginx/certs
-CA_DIR=/etc/ssl
+CA_DIR=/etc/nginx/ca
 
 mkdir -p $OUTPUT_DIR $CA_DIR
 
