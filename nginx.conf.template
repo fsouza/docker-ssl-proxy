@@ -10,8 +10,8 @@ http {
     server {
         listen 443;
 
-        ssl_certificate           /etc/nginx/certs/cert.pem;
-        ssl_certificate_key       /etc/nginx/certs/key.pem;
+        ssl_certificate     /etc/nginx/certs/cert.pem;
+        ssl_certificate_key /etc/nginx/certs/key.pem;
 
         ssl on;
         ssl_session_cache  builtin:1000  shared:SSL:10m;
