@@ -20,5 +20,4 @@ Docker volumes to share the certificate with other containers.
 ## Docker Hub Image
 
 You can get the publicly available docker image at the following location:
-[Docker Hub -
-SSL-Proxy](https://registry.hub.docker.com/u/fsouza/docker-ssl-proxy/).
+[docker-ssl-proxy](https://registry.hub.docker.com/u/fsouza/docker-ssl-proxy/).
