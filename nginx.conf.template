@@ -8,7 +8,7 @@ http {
     sendfile on;
 
     server {
-        listen ${PORT};
+        listen 443;
 
         ssl_certificate           /etc/nginx/certs/cert.pem;
         ssl_certificate_key       /etc/nginx/certs/key.pem;
