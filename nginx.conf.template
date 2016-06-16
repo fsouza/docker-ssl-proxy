@@ -1,4 +1,5 @@
 worker_processes 1;
+daemon off;
 
 events { worker_connections 1024; }
 
@@ -26,8 +27,7 @@ http {
             proxy_set_header        X-Forwarded-Proto $scheme;
 
             proxy_pass http://${TARGET_HOST}:${TARGET_PORT};
-            proxy_set_header  X-Real-IP  $remote_addr;
+            proxy_set_header  X-Real-IP $remote_addr;
         }
     }
 }
-daemon off;
