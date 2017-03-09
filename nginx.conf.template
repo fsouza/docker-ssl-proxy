@@ -10,6 +10,7 @@ http {
     server {
         listen 443;
 
+        client_max_body_size ${CLIENT_MAX_BODY_SIZE};
         ssl_certificate     /etc/nginx/certs/cert.pem;
         ssl_certificate_key /etc/nginx/certs/key.pem;
 
