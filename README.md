@@ -18,6 +18,16 @@ The SSL certificate is generated using a own-ROOT-ca that is available in the
 directory ``/etc/nginx/ca``, you may use Docker volumes to share the CAs with
 other containers, so they can trust the installed certificate.
 
+## Using own Certificate
+
+You can use existing SSL certificates for your ``DOMAIN``
+by connecting an volume onto ``/etc/nginx/certs`` with following files inside:
+
+- ``key.pem``: private key file
+- ``cert.pem``: certificate file
+
+The certificate generator will check on existing ``key.pem`` and abort.
+
 ## Docker Hub Image
 
 You can get the publicly available docker image at the following location:
