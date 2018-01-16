@@ -13,4 +13,3 @@ envsubst < /nginx.conf.template > /etc/nginx/nginx.conf
 
 # Use exec so nginx can get signals directly
 exec nginx
-echo "Something Broke!"
