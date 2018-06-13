@@ -8,7 +8,7 @@ http {
     sendfile on;
 
     server {
-        listen 443;
+        listen ${SSL_PORT};
 
         client_max_body_size ${CLIENT_MAX_BODY_SIZE};
         ssl_certificate     /etc/nginx/certs/cert.pem;

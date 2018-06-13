@@ -11,6 +11,7 @@ The following environment variables configure nginx:
 - ``TARGET_PORT``: target port for the reverse proxy (default value: ``80``)
 - ``TARGET_HOST``: target host for the reverse proxy (default value: ``proxyapp``)
 - ``CLIENT_MAX_BODY_SIZE``: maximum size of client uploads (default value: ``20M``)
+  ``SSL_PORT``: port ngnix SSL proxy listens on
 
 ## Certificates and CA location
 

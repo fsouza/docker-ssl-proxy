@@ -1,7 +1,7 @@
 #!/bin/sh
 
 targetDocker="bixel"
-port=443
+port=$SSL_PORT
 targetPort=80
 
 while getopts ':d::p::t:' opt; do
