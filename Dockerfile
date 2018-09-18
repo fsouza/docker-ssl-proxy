@@ -1,8 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 ENV SSL_PORT=443
 
-RUN apk update && apk add nginx openssl gettext
+RUN apk add --no-cache nginx openssl gettext
 
 ADD add_self_signed_certs.sh /
 ADD nginx.conf.template /
