@@ -21,7 +21,7 @@ http {
         ssl_prefer_server_ciphers on;
 
         location / {
-            proxy_pass  http://${TARGET_HOST}:${TARGET_PORT};
+            proxy_pass  ${TARGET_SCHEME}://${TARGET_HOST}:${TARGET_PORT};
 
             proxy_set_header Host              ${TARGET_HOST};
             proxy_set_header X-Real-IP         $remote_addr;
