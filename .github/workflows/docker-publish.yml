@@ -1,0 +1,17 @@
+name: docker push
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docker-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: build and push
+        uses: elgohr/Publish-Docker-Github-Action@1.7
+        with:
+          name: fsouza/docker-ssl-proxy
+          username: ${{ secrets.docker_username }}
+          password: ${{ secrets.docker_password }}
