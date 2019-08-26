@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: build and push
-        uses: elgohr/Publish-Docker-Github-Action@1.7
+        uses: elgohr/Publish-Docker-Github-Action@1.8
         with:
           name: fsouza/docker-ssl-proxy
           username: ${{ secrets.docker_username }}
