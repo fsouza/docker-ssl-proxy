@@ -8,7 +8,8 @@ jobs:
   docker-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1.0.0
+
       - name: build and push
         uses: elgohr/Publish-Docker-Github-Action@1.8
         with:
