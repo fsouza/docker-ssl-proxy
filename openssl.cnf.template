@@ -1,0 +1,16 @@
+[req]
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]
+countryName = Country Name (2 letter code)
+countryName_default = US
+localityName = Locality Name (eg, city)
+organizationalUnitName = Organizational Unit Name (eg, section)
+
+[v3_req] 
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1   = ${DOMAIN}
