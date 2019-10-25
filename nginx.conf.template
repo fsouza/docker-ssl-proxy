@@ -13,13 +13,12 @@ http {
     }
 
     server {
-        listen ${SSL_PORT};
+        listen ${SSL_PORT} ssl;
 
         client_max_body_size ${CLIENT_MAX_BODY_SIZE};
         ssl_certificate     /etc/nginx/certs/cert.pem;
         ssl_certificate_key /etc/nginx/certs/key.pem;
 
-        ssl on;
         ssl_session_cache  builtin:1000  shared:SSL:10m;
         ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
         ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
