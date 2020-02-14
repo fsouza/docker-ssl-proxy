@@ -2,7 +2,7 @@ worker_processes 1;
 pid /run/nginx.pid;
 daemon off;
 
-error_log /dev/stdout info;
+error_log stderr info;
 
 events { worker_connections 1024; }
 
