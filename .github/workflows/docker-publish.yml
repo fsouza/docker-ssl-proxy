@@ -2,7 +2,7 @@ name: docker push
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   docker-publish:
