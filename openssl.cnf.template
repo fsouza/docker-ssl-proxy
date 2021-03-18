@@ -7,8 +7,8 @@ countryName_default = US
 localityName = Locality Name (eg, city)
 organizationalUnitName = Organizational Unit Name (eg, section)
 
-[v3_req] 
-keyUsage = keyEncipherment, dataEncipherment
+[v3_req]
+keyUsage = digitalSignature, keyEncipherment
 extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 
