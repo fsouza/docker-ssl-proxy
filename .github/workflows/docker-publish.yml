@@ -11,12 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
 
-      - name: docker-publish
+      - uses: fsouza/docker-publish-action@main
         if: github.event.ref_type == 'tag' || github.event_name == 'push'
-        uses: docker://docker
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         with:
-          entrypoint: sh
-          args: ci/docker-build.sh
+          docker-image: fsouza/docker-ssl-proxy
+          docker-username: ${{ secrets.DOCKER_USERNAME }}
+          docker-password: ${{ secrets.DOCKER_PASSWORD }}
