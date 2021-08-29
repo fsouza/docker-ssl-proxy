@@ -21,6 +21,8 @@ http {
         ssl_certificate     /etc/nginx/certs/cert.pem;
         ssl_certificate_key /etc/nginx/certs/key.pem;
 
+        error_page 497 301 =307 https://${SERVER_NAME}:${SSL_PORT}$request_uri;
+
         ssl_session_cache  builtin:1000  shared:SSL:10m;
         ssl_protocols  TLSv1.2 TLSv1.3;
         ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
