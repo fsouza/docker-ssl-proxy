@@ -9,7 +9,7 @@ jobs:
   docker-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
 
       - uses: fsouza/docker-publish-action@v1.0.1
         if: github.event.ref_type == 'tag' || github.event_name == 'push'
