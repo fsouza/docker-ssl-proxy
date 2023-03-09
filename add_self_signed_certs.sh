@@ -12,6 +12,20 @@ envsubst $REPLACEABLE < /openssl.cnf.template > /openssl.cnf
 if [ ! -f ${OUTPUT_DIR}/key.pem ]; then
   echo "SSL Certificate not found. Generating self-signed certficiate..."
 
+  # Generate subject alternative names if specified
+  if [ ! -z "$ALT_NAMES" ]; then
+
+    # Remove errant spaces
+    ALT_NAMES="${ALT_NAMES// /}"
+
+    # The base domain is already #1 so $I starts at #2
+    I=2
+    for ALT_NAME in ${ALT_NAMES//,/ }; do
+      echo "DNS.$(( I++ ))   = ${ALT_NAME}" >> /openssl.cnf
+    done
+
+  fi
+
     # Generate the certificate
     openssl req -x509 -nodes \
       -newkey rsa:2048 \
