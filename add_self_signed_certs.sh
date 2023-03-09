@@ -15,9 +15,6 @@ if [ ! -f ${OUTPUT_DIR}/key.pem ]; then
   # Generate subject alternative names if specified
   if [ ! -z "$ALT_NAMES" ]; then
 
-    # Remove errant spaces
-    ALT_NAMES="${ALT_NAMES// /}"
-
     # The base domain is already #1 so $I starts at #2
     I=2
     for ALT_NAME in ${ALT_NAMES//,/ }; do
