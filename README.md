@@ -22,6 +22,10 @@ The SSL certificate is generated using a own-ROOT-ca that is available in the
 directory ``/etc/nginx/ca``, you may use Docker volumes to share the CAs with
 other containers, so they can trust the installed certificate.
 
+You can also install the shared CA cert on your workstation to automatically
+trust your docker-ssl-proxy services in your browser, without having to override
+security warnings each time you visit or restart the services.
+
 ## Using own Certificate
 
 You can use existing SSL certificates for your ``DOMAIN``
