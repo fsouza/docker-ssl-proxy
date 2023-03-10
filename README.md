@@ -8,6 +8,7 @@ Builds a basic nginx server that proxies incoming SSL calls to a target host
 The following environment variables configure nginx:
 
 - ``DOMAIN``: domain in the SSL certificate (default value: ``www.example.com``)
+- ``ALT_NAMES``: optional comma-separated list of alternative domain names (e.g: ``example.net,example.tv``)
 - ``TARGET_PORT``: target port for the reverse proxy (default value: ``80``)
 - ``TARGET_HOST``: target host for the reverse proxy (default value: ``proxyapp``)
 - ``TARGET_HOST_HEADER``: value to be used as the Host header when sending
