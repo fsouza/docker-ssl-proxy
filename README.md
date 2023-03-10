@@ -5,7 +5,7 @@ Builds a basic nginx server that proxies incoming SSL calls to a target host
 
 ## Environment variables
 
-The following environment variables configure nginx:
+The following environment variables configure nginx and openssl:
 
 - ``DOMAIN``: domain in the SSL certificate (default value: ``www.example.com``)
 - ``ALT_NAMES``: optional comma-separated list of alternative domain names (e.g: ``example.net,example.tv``)
@@ -23,8 +23,13 @@ directory ``/etc/nginx/ca``, you may use Docker volumes to share the CAs with
 other containers, so they can trust the installed certificate.
 
 You can also install the shared CA cert on your workstation to automatically
-trust your docker-ssl-proxy services in your browser, without having to override
-security warnings each time you visit or restart the services.
+trust all of your docker-ssl-proxy services in your browser, without having
+to override security warnings each time you visit or restart the services.
+
+It may be wise if using a shared CA volume with multiple docker-ssl-proxys
+to let one finish initializing before the others; to avoid a conceivable race
+condition where they write over each others' CA keys. Pick any proxy instance
+and make the others ``depends_on`` it.
 
 ## Using own Certificate
 
