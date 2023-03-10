@@ -56,4 +56,13 @@ if [ ! -f ${OUTPUT_DIR}/key.pem ]; then
     -extensions v3_req \
     -out ${OUTPUT_DIR}/cert.pem
 
+    # Generate the certificate
+    openssl req -x509 -nodes \
+      -newkey rsa:2048 \
+      -keyout ${OUTPUT_DIR}/key.pem \
+      -out ${OUTPUT_DIR}/cert.pem \
+      -days 825 \
+      -config /openssl.cnf \
+      -extensions v3_req \
+      -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=${DOMAIN}"
 fi
