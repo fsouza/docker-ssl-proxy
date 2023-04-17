@@ -22,14 +22,27 @@ The SSL certificate is generated using a own-ROOT-ca that is available in the
 directory ``/etc/nginx/ca``, you may use Docker volumes to share the CAs with
 other containers, so they can trust the installed certificate.
 
-You can also install the shared CA cert on your workstation to automatically
-trust all of your docker-ssl-proxy services in your browser, without having
-to override security warnings each time you visit or restart the services.
+Your container may initialise faster than docker-ssl-proxy; therefore your
+start-up script should wait until the CA-cert has a non-zero size before
+attempting to use it.
 
-It may be wise if using a shared CA volume with multiple docker-ssl-proxys
-to let one finish initializing before the others; to avoid a conceivable race
-condition where they write over each others' CA keys. Pick any proxy instance
-and make the others ``depends_on`` it.
+### Import CA cert into container
+Example for Debian / Ubuntu, assuming volume mount of `./https-proxy-ca:/etc/ssl/shared-ca`:
+```
+cp /etc/ssl/shared-ca/rootCA.crt /usr/local/share/ca-certificates/
+update-ca-certificates
+```
+
+### Import CA cert onto workstation
+
+You can also install the shared CA cert on your workstation to automatically
+trust all of your docker-ssl-proxy services in your browser, without having to
+override security warnings each time you visit or restart the services.
+
+Example for Mac OSX:
+```
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain https-proxy-ca/rootCA.crt
+```
 
 ## Using own Certificate
 
