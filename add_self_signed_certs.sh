@@ -7,8 +7,17 @@ CA_DIR=/etc/nginx/ca
 mkdir -p $OUTPUT_DIR $CA_DIR
 
 # Generate the root CA if it doesn't exist
-if [ ! -f ${CA_DIR}/rootCA.crt ]; then
-    echo "CA Certificate not found. Generating self-signed CA certficiate..."
+if [ ! -s ${CA_DIR}/rootCA.crt ]; then
+  echo "CA Certificate not found. Generating self-signed CA certficiate..."
+
+  # Don't generate CA-cert if another container has already started doing it
+  echo "Locking CA-cert file"
+  exec 3>> ${CA_DIR}/rootCA.crt
+  flock -x 3
+
+  # Re-check in case CA-cert was created while waiting for file lock to release
+  if [ ! -s ${CA_DIR}/rootCA.crt ]; then
+    echo "Cert file empty. Generating..."
 
     openssl genrsa -out ${CA_DIR}/rootCA.key 2048
     openssl req -x509 -new -nodes \
@@ -18,6 +27,13 @@ if [ ! -f ${CA_DIR}/rootCA.crt ]; then
             -subj "/C=US/ST=Denial/L=Springfield/O=DisRoot/CN=CompanyRoot" \
             -extensions v3_ca \
             -out ${CA_DIR}/rootCA.crt
+
+  fi
+
+  # Release file lock
+  echo "Releasing CA-cert file lock"
+  exec 3>&-
+
 fi
 
 if [ ! -f ${OUTPUT_DIR}/key.pem ]; then
