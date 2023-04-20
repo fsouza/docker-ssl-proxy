@@ -14,7 +14,7 @@ jobs:
 
       - name: docker meta
         id: meta
-        uses: docker/metadata-action@v4.3.0
+        uses: docker/metadata-action@v4.4.0
         with:
           images: fsouza/docker-ssl-proxy
           tags: |
