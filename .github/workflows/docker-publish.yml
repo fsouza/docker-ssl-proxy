@@ -40,8 +40,8 @@ jobs:
       - name: build and push
         uses: docker/build-push-action@v4.0.0
         with:
-          cache-from: gha
-          cache-to: gha
+          cache-from: fsouzaci/gha-cache:docker-ssl-proxy
+          cache-to: fsouzaci/gha-cache:docker-ssl-proxy
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
