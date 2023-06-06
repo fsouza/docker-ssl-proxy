@@ -13,6 +13,8 @@ The following environment variables configure nginx and openssl:
 - ``TARGET_HOST``: target host for the reverse proxy (default value: ``proxyapp``)
 - ``TARGET_HOST_HEADER``: value to be used as the Host header when sending
   requests to the target host (defaults to the value of ``$TARGET_HOST``)
+- ``TARGET_FORWARDED_HOST_HEADER``: value to be used as the X-Forwarded-Host header when sending
+  requests to the target host (default value: ``$host``)
 - ``CLIENT_MAX_BODY_SIZE``: maximum size of client uploads (default value: ``20M``)
 - ``SSL_PORT``: port ngnix SSL proxy listens on
 
